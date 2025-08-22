@@ -5,6 +5,7 @@ on:
       run_deploy:
         description: 'Do you want to deploy?'
         required: true
+        default: 'no'
         type: choice
         options:
           - yes
