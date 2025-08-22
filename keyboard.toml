@@ -10,7 +10,7 @@ chip = "nrf52840"
 matrix_type = "direct_pin"
 # `direct_pin_low_active` is optional. Default to `true`.
 direct_pin_low_active = true
-direct_pins = [["P0_29"], ["P0_02", "P1_15", "P1_13"], ["P1_11"], ["P0_10", "P0_08"], ["P0_06"], ["P0_24", "P1_00", "P0_11"], ["P1_04"],]
+direct_pins = [["P0_29", "P0_02", "P1_15"], ["P1_13", "P1_11", "P0_10"], ["P0_08", "P0_06", "P0_24"], [ "P1_00", "P0_11", "P1_04"],]
 
 [layout]
 rows = 4
