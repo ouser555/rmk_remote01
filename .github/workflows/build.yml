@@ -1,15 +1,9 @@
 name: Build RMK firmware
 on:
   workflow_dispatch:
-    inputs:
-      run_deploy:
-        description: 'Do you want to deploy?'
-        required: true
-        default: 'no'
-        type: choice
-        options:
-          - yes
-          - no
+    push:
+    paths:
+      - "**"
 
 jobs:
   build:
