@@ -1,125 +1,82 @@
-# Documentation: https://haobogu.github.io/rmk/keyboard_configuration.html
+# Documentation: https://rmk.rs/docs/configuration.html
 [keyboard]
 name = "RMK Keyboard"
-product_name = "RMK Keyboard"
+product_name = "Dux71bk"
 vendor_id = 0x4c4b
 product_id = 0x4643
-manufacturer = "haobo"
+manufacturer = "RMK"
 chip = "nrf52840"
-# board = "nice!nano_v2"
+# board = "nice!nano_v2"  # Pre-configured board
+serial_number = "vial:f64c2b3c"
+usb_enable = true
 
-[[input_device.joystick]]
-name = "default"
-pin_x = "P0_31"
-pin_y = "P0_29"
-pin_z = "_"
-transform = [[80, 0], [0, 80]]
-bias = [29130, 29365]
-resolution = 6
-# func = "mouse | n-direction key" # TODO: only mouse is supported now
 
 [matrix]
-matrix_type = "direct_pin"
-# `direct_pin_low_active` is optional. Default to `true`.
-direct_pin_low_active = true
-direct_pins = [
-["P0_09", "P0_02", "P1_15"], 
-["P1_13", "P1_11", "P0_10"], 
-["P0_08", "P0_06", "P0_24"], 
-["P1_00", "P0_11", "P1_04"],
-]
+# Row and col pins are mandatory
+row_pins = ["P0_24", "P1_00", "P0_11", "P1_04", "P1_06"]
+col_pins = ["P0_06", "P0_08", "P0_17", "P0_20", "P0_22"]
+
+# RMK uses col2row as the default matrix diode direction, if you want to use a row2col matrix, add `row2col = true`
+# row2col = true
 
 [layout]
-rows = 4
-cols = 3
-layers = 12
+rows = 5
+cols = 5
+layers = 2
 keymap = [
     [
-        ["A", "B", "C"],
-        ["D", "E", "F"],
-        ["G", "H", "I"],
-        ["J", "K", "L"]
+        ["A", "B", "C", "D", "E"],
+        ["F", "G", "H", "I", "J"],
+        ["K", "L", "M", "N", "O"],
+        ["P", "Q", "R", "S", "T"],
+        ["U", "V", "W", "X", "Y"]
     ],
     [
-        ["Kc1", "Kc2", "Kc3"],
-        ["Kc4", "Kc5", "Kc6"],
-        ["Kc7", "Kc8", "Kc9"],
-        ["Kc1", "Kc0", "Kc3"]
-    ],
-    [
-        ["Kc1", "Kc2", "Kc3"],
-        ["Kc4", "Kc5", "Kc6"],
-        ["Kc7", "Kc8", "Kc9"],
-        ["Kc1", "Kc0", "Kc3"]
-    ],
-    [
-        ["Kc1", "Kc2", "Kc3"],
-        ["Kc4", "Kc5", "Kc6"],
-        ["Kc7", "Kc8", "Kc9"],
-        ["Kc1", "Kc0", "Kc3"]
-    ],
-    [
-        ["Kc1", "Kc2", "Kc3"],
-        ["Kc4", "Kc5", "Kc6"],
-        ["Kc7", "Kc8", "Kc9"],
-        ["Kc1", "Kc0", "Kc3"]
-    ],
-    [
-        ["Kc1", "Kc2", "Kc3"],
-        ["Kc4", "Kc5", "Kc6"],
-        ["Kc7", "Kc8", "Kc9"],
-        ["Kc1", "Kc0", "Kc3"]
-    ],
-    [
-        ["Kc1", "Kc2", "Kc3"],
-        ["Kc4", "Kc5", "Kc6"],
-        ["Kc7", "Kc8", "Kc9"],
-        ["Kc1", "Kc0", "Kc3"]
-    ],
-    [
-        ["Kc1", "Kc2", "Kc3"],
-        ["Kc4", "Kc5", "Kc6"],
-        ["Kc7", "Kc8", "Kc9"],
-        ["Kc1", "Kc0", "Kc3"]
-    ],
-    [
-        ["Kc1", "Kc2", "Kc3"],
-        ["Kc4", "Kc5", "Kc6"],
-        ["Kc7", "Kc8", "Kc9"],
-        ["Kc1", "Kc0", "Kc3"]
-    ],
-    [
-        ["Kc1", "Kc2", "Kc3"],
-        ["Kc4", "Kc5", "Kc6"],
-        ["Kc7", "Kc8", "Kc9"],
-        ["Kc1", "Kc0", "Kc3"]
-    ],
-    [
-        ["Kc1", "Kc2", "Kc3"],
-        ["Kc4", "Kc5", "Kc6"],
-        ["Kc7", "Kc8", "Kc9"],
-        ["Kc1", "Kc0", "Kc3"]
-    ],
-    [
-        ["Kc1", "Kc2", "Kc3"],
-        ["Kc4", "Kc5", "Kc6"],
-        ["Kc7", "Kc8", "Kc9"],
-        ["Kc1", "Kc0", "Kc3"]
+        ["A", "B", "C", "D", "E"],
+        ["F", "G", "H", "I", "J"],
+        ["K", "L", "M", "N", "O"],
+        ["P", "Q", "R", "S", "T"],
+        ["U", "V", "W", "X", "Y"]
     ],
 ]
 
-[light]
-# All light pins are high-active by default, uncomment if you want it to be low-active
-# capslock.pin = "PB2"
-# capslock.low_active = true
-# scrolllock.pin = "PA3"
-# scrolllock.low_active = true
-# Just ignore if no light pin is used for it
-# numslock.pin = "PA5"
-# numslock.low_active = true
+
+# Encoder 0
+[[input_device.encoder]]
+pin_a = "P0_31"
+pin_b = "P0_29"
+phase = "default"
+# Encoder 1
+[[input_device.encoder]]
+pin_a = "P0_02"
+pin_b = "P1_15"
+phase = "default"
 
 
+#[[input_device.pmw3610]]
+#name = "trackball0"
+#id = 0 # optional number between 0-255. Ids are used for debug prints. Set to 0 if omitted.
 
-[storage]
-# Storage feature is enabled by default
-# enabled = false
+#spi.instance = "bitbang0"
+#spi.sck = "P1_13"
+#spi.mosi = "P1_11"
+#spi.miso = "P1_11"
+#spi.cs = "P0_10"
+## or spi = { instance = "bitbang0", sck = "P1_13", mosi = "P1_11", miso = "P1_11", cs = "P0_10" }
+
+#motion = "P0_09" # Optional. If omitted, the sensor is polled.
+
+#report_hz = 125 # Optional: Report rate in Hz
+
+#force_awake = false
+#smart_mode = true
+#cpi = 800
+## invert / swap axis on a sensor level
+#invert_x = true
+
+# invert_y = true
+# swap_xy = true
+# invert / swap axis in software (in PointingProcessor)
+# proc_invert_x = true
+# proc_invert_y = true
+# proc_swap_xy = true
